@@ -311,9 +311,8 @@ ts.plot(train.ts,hasil)
 ```
 
 ```{r}
-perbandingan.da<-matrix(data=c(head(test.ts, n=9), hasil[-2]),
-                     nrow = 9, ncol = 2)
+perbandingan.da<-data.frame(test.ts, hasil[c(-1,-11)])
 colnames(perbandingan.da)<-c("Aktual","Hasil Forecast")
 perbandingan.da
-accuracy(ts(hasil[-3]), head(test.ts, n=9))
+accuracy(ts(hasil[-2]), head(test.ts,n=9))
 ```
